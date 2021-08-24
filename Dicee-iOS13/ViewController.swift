@@ -3,6 +3,7 @@
 //  Dicee-iOS13
 //
 //  Created by Angela Yu on 11/06/2019.
+//  Edited by Katie Lee on 08/24/2021.
 //  Copyright © 2019 London App Brewery. All rights reserved.
 //
 
@@ -12,23 +13,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
-    
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][leftDiceNumber]
         
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][rightDiceNumber]
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
         
-        leftDiceNumber += 1
-        rightDiceNumber -= 1
+        diceImageView1.image = diceArray.randomElement() //Does the same thing as the Int.random
+        diceImageView2.image = diceArray[Int.random(in: 0...5)]
     }
     
 }
